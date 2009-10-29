@@ -55,9 +55,19 @@ Then install the Formtastic gem:
 
   ActiveSupport::Inflector.pluralize("chleb", 1)        # => chleb
   ActiveSupport::Inflector.pluralize("chleb", 2)        # => chleby
-  ActiveSupport::Inflector.pluralize("chleb", 3)        # => chlebów
+  "chleb".pluralize                                     # => chleby
+  ActiveSupport::Inflector.pluralize("chleb", 5)        # => chlebów
   ActiveSupport::Inflector.pluralize("one potatoe", 7)  # => seven potatoes
   ActiveSupport::Inflector.pluralize("one potatoe", 10) # => more!
+  
+  # for other words it behaves like before
+  ActiveSupport::Inflector.pluralize("word")            # => words
+  ActiveSupport::Inflector.pluralize("octopus")         # => octopi
+  "person".pluralize                                    # => people
+  
+  #in your views
+  
+  <%= pluralize(3, "chleb") %>                          # => chleby
   
 == Author
 

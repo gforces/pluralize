@@ -49,7 +49,13 @@ describe "Pluralize" do
     }.each do |count, plural_form|
       ActiveSupport::Inflector.pluralize("word", count).should.equal plural_form
     end
-    
+    ActiveSupport::Inflector.pluralize("octopus").should.equal "octopi"
+    ActiveSupport::Inflector.pluralize("person").should.equal "people"
+  end
+  
+  it "should pluralize strings" do
+    "chleb".pluralize.should.equal "chleby"
+    "chleb".pluralize(10).should.equal "chlebów"
   end
   
 end
